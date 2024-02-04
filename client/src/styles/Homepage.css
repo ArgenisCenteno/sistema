@@ -1,0 +1,58 @@
+/* ESTILOS PARA LA PAGINA DE INICIO */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+
+
+
+
+.home-page .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-page .card-price {
+  color: rgb(0, 97, 0);
+  font-weight: bold;
+}
+.home-page button {
+  border-radius: 16px;
+  width: 100%; 
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.home-page .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.home-page .card img:hover {
+  transform: scale(0.9);
+}
+
+.home-page .card-img-top {
+  height: 300px !important;
+}
+ 
+ 
+
+ 
+ 
+
+.unavailable-label {
+  color: red;
+  font-weight: bold;
+}
+
+ 
+ .card-products {
+  display: flex;
+  justify-content: center;
+}
+
+.center-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+ 

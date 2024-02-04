@@ -1,0 +1,81 @@
+/* ESTILOS PARA LA PAGINA REGISTRAR USUARIO  */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+
+
+.form-container {
+  margin-top:  0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 70vh;
+  flex-direction: column;
+  background-color: #ffff;
+ padding-bottom: 32px; 
+ padding-bottom: 8rem;
+}
+
+.form-container form {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 20px;
+  border-radius: 10px;;
+  background-color: #fff;
+  width: 300px !important;
+  margin-top: 12px; 
+}
+
+.form-container form .title {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: bold;
+  font-family: "Poppins", serif;
+}
+
+.form-container label{
+  font-family: "Poppins", serif;
+}
+
+ .ingresar{
+  border: 1px solid #125E8A;
+  border-radius: 4;
+  background-color: #125E8A;
+  color: white;
+  width: 260px;
+}
+
+.ingresar:hover {
+  border: 1px solid #125E8A;
+  background: #125E8A; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to right,
+    #0e7490,
+    #125E8A
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right,
+    #0e7490,
+    #125E8A
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.forgot-btn {
+  background-color: #434343a4 !important;
+  border: 0 !important;
+}
+
+.forgot-btn:hover {
+  color: white !important;
+}
+
+.contenido{
+  background-color: #a7f3d0;
+  
+  justify-content: center;
+}
+
+.imagen{
+  background-color: #a7f3d0; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+

@@ -1,0 +1,16 @@
+/*ESTILOS PARA LA PAGINA DEL CARRITO COMPRAS*/
+
+.cart-page {
+  margin-top: 44px;
+  padding-bottom: 0%;
+  
+ }
+
+.cart-page h1 {
+  padding: 30px !important;
+  margin-top: -50px!important;
+  font-family: "roboto", sans-serif;
+  font-weight: normal;
+  background-color: rgba(0, 0, 255, 0.072) !important;
+} 
+
