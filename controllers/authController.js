@@ -425,7 +425,7 @@ export const forgoutPasswordController = async (req, res) => {
   });
 
   // URL del enlace para resetear la contraseña, debes definir esta ruta en tu servidor
-  const resetPasswordLink = `https://blanca-sanchez.hop.sh/new-password/${token}`;
+  const resetPasswordLink = `https://blancasanchez.onrender.com/new-password/${token}`;
 
   // Enviar el correo con el enlace de reseteo de contraseña
   try {

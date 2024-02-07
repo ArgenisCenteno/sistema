@@ -170,6 +170,29 @@ const Order = () => {
    </div>
 </div>
 
+<div className="d-flex flex-column pt-2">
+  <div className="d-flex justify-content-between mb-2">
+    <p className="fw-bold mb-0">Para pagar con pago Movil/Transferencia</p>
+    
+  </div>
+
+  <div className="d-flex justify-content-between mb-2">
+    <p className="text-muted mb-0">Banco: Banesco</p>
+   
+  </div>
+
+  <div className="d-flex justify-content-between mb-2">
+    <p className="text-muted mb-0"> Telefono: 04148822823</p>
+   </div>
+  <div className="d-flex justify-content-between mb-2">
+    <p className="text-muted mb-0">Cuenta Bancaria: 01358928928928292829282</p>
+   </div>
+   <div className="d-flex justify-content-between mb-2">
+    <p className="text-muted mb-0">Documento: J-343212321</p>
+   </div>
+   
+</div>
+
 
            
           </div>
@@ -256,6 +279,7 @@ const Order = () => {
         onCancel={handleCancel}
         footer={null}
       >
+          
         <Form
           name="paymentForm"
           onFinish={onFinish}

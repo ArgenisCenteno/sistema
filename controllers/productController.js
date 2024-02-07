@@ -472,7 +472,7 @@ const sendEmailToAdmin = async (orderId, mountTotal) => {
       from: process.env.EMAIL_SMTP,
       to:  process.env.ADMIN_EMAIL ,
       subject: "Nueva Orden Pagada", 
-      html: `<p>La orden con ID ${orderId} ha sido pagada correctamente, con un Monto total de $${mountTotal} . Puedes ver los detalles en el panel de administración:</p><p> <a href="https://tienda-online-production-c6b6.up.railway.app/dashboard/admin/order/${orderId}">Aquí</a>.</p>`,
+      html: `<p>La orden con ID ${orderId} ha sido pagada correctamente, con un Monto total de $${mountTotal} . Puedes ver los detalles en el panel de administración:</p><p> <a href="https://blancasanchez.onrender.com/dashboard/admin/order/${orderId}">Aquí</a>.</p>`,
 
     };
 
