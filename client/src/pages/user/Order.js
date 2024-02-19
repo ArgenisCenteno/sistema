@@ -17,6 +17,10 @@ const Order = () => {
   const [orderData, setOrderData] = useState(null); // Estado para almacenar los datos de la orden
   const [isPaying, setIsPaying] = useState(false);
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [tasa, setTasa] = useState("");
+  const [banco, setBanco] = useState("");
+  const [documento, setDocumento] = useState("");
+  const [telefono, setTelefono] = useState("");
 
   // Función para abrir el formulario
   const showModal = () => {
@@ -27,6 +31,25 @@ const Order = () => {
   const handleCancel = () => {
     setIsModalVisible(false);
   };
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const response = await axios.get("/api/v1/auth//all-config");
+        const configData = response.data.config;
+
+        // Establecer los valores de la configuración en los estados del componente 
+        setTasa(configData.tasa); 
+        setBanco(configData.banco);
+        setTelefono(configData.telefono);   
+        setDocumento(configData.documento)
+      } catch (error) {
+        console.error("Error al obtener la configuración:", error);
+      }
+    };
+
+    fetchConfig();
+  }, []); // La dependencia vacía asegura que esta función s
 
   const onFinish = async(values) => {
     // Aquí puedes manejar la lógica para enviar los datos del formulario
@@ -172,24 +195,22 @@ const Order = () => {
 
 <div className="d-flex flex-column pt-2">
   <div className="d-flex justify-content-between mb-2">
-    <p className="fw-bold mb-0">Para pagar con pago Movil/Transferencia</p>
-    
+    <p className="fw-bold mb-0">Para pagar con pago Movil </p>
+        
   </div>
 
   <div className="d-flex justify-content-between mb-2">
-    <p className="text-muted mb-0">Banco: Banesco</p>
-   
-  </div>
-
-  <div className="d-flex justify-content-between mb-2">
-    <p className="text-muted mb-0"> Telefono: 04148822823</p>
-   </div>
-  <div className="d-flex justify-content-between mb-2">
-    <p className="text-muted mb-0">Cuenta Bancaria: 01358928928928292829282</p>
-   </div>
-   <div className="d-flex justify-content-between mb-2">
-    <p className="text-muted mb-0">Documento: J-343212321</p>
-   </div>
+                          <p className="mb-2">Telefono</p>
+                          <p className="mb-2">{telefono}</p>
+                        </div>
+                        <div className="d-flex justify-content-between mb-2">
+                          <p className="mb-2">Docuemeto</p>
+                          <p className="mb-2">{documento}</p>
+                        </div>
+                        <div className="d-flex justify-content-between mb-2">
+                          <p className="mb-2">Banco</p>
+                          <p className="mb-2">{banco}</p>
+                        </div>
    
 </div>
 
@@ -214,6 +235,8 @@ const Order = () => {
     <div className="border-0 py-4 d-flex flex-column p-2"
             style={{backgroundColor: "#125E8A"}}>
             <h5 className="d-flex align-items-center text-center justify-content-center text-white text-uppercase mb-0">Monto Total: <span className="  mb-0 ms-2">${orderData?.order?.total?.toFixed(2)}</span></h5>
+            <h5 className="d-flex align-items-center text-center justify-content-center text-white text-uppercase mb-0">Monto en BS: <span className="  mb-0 ms-2">  {orderData?.order?.total * tasa}</span></h5>
+
             <p className="d-flex align-items-center text-center justify-content-center text-white text-uppercase mb-0"><span className="fw-bold me-4">Subtotal</span> ${orderData?.order?.subtotal?.toFixed(2)}</p>
             <p className="d-flex align-items-center text-center justify-content-center text-white text-uppercase mb-0"><span className="fw-bold me-4">Envío</span>  ${Number(orderData?.order?.address.tasaEnvio)}</p>
           </div>
@@ -254,7 +277,7 @@ const Order = () => {
               />)}
              
               </div>
-              <button className="btn btn-success  btn-lg btn-block mt-4 mb-4 "          onClick={showModal}>Pagar con Pago Movil/transferencia</button> <br/>
+              <button className="btn btn-success  btn-lg btn-block mt-4 mb-4 "          onClick={showModal}>Pagar con Pago Movil </button> <br/>
               <span className="span text-muted  mt-2  text-center "> <strong>Atencion al cliente</strong> </span>
   <a href="https://wa.link/5ye7qg" target="_blank" style={{textDecoration: "none"}}>
               <button className="btn btn-primary btn-lg btn-block mt-4" style={{width: "100%"}}> <WhatsAppIcon/> WhatsApp</button>
@@ -283,7 +306,7 @@ const Order = () => {
         <Form
           name="paymentForm"
           onFinish={onFinish}
-          initialValues={{ monto: (orderData?.order?.total * 35.53).toFixed(2) }}
+          initialValues={{ monto: (orderData?.order?.total * tasa).toFixed(2) }}
           >
           <Form.Item
             label="Banco"

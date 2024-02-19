@@ -1,16 +1,35 @@
-import React  from "react";
+import React,{useState, useEffect}  from "react";
 import Layout from "./../components/Layout/Layout";
 import { useCart } from "../context/cart";
 import { useAuth } from "../context/auth";
 import { useNavigate } from "react-router-dom"; 
+import axios from "axios";
   
 import "../styles/CartStyles.css";
  
 const CartPage = () => {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
+  const [tasa, setTasa] = useState("");
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const response = await axios.get("/api/v1/auth//all-config");
+        const configData = response.data.config;
+
+        // Establecer los valores de la configuración en los estados del componente 
+        setTasa(configData.tasa); 
+      } catch (error) {
+        console.error("Error al obtener la configuración:", error);
+      }
+    };
+
+    fetchConfig();
+  }, []); // La dependencia vacía asegura que esta función s
    
-  const navigate = useNavigate();
+  const navigate = useNavigate();  
+  
   //CALCULAR EL TOTAL 
   const totalPrice = () => {
     try {
@@ -40,6 +59,21 @@ const CartPage = () => {
     }
   };
 
+  const totalDolares = () => {
+    try {
+      let total = 0; 
+      cart?.map((item) => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+      });
+      const subtotal = total  ;
+      const monto = subtotal * tasa;
+      return monto.toFixed(2).toLocaleString();
+    } catch (error) {
+      console.log(error);  
+    }
+  };
+
    
   
   return (
@@ -61,6 +95,10 @@ const CartPage = () => {
                   <div> 
                     <p className="mb-0">Tienes {cart.length} productos en tu carrito</p>
                   </div>
+                  <div className="d-flex justify-content-between">
+                            <p className="mb-2">TASA DEL DOLAR:   </p>
+                            <p className="mb-2"> {tasa} Bs</p>
+                          </div>
                   
                 </div>
                 {cart.map((p, index) => (
@@ -119,6 +157,10 @@ const CartPage = () => {
                       <h4 className="mb-2">Total</h4>
                       <h4 className="mb-2">{totalPrice()}</h4>
                     </div>
+                    <div className="d-flex justify-content-between mb-4">
+                        <p className="mb-2">Total en BS </p>
+                        <p className="mb-2">BS {totalDolares()}</p>
+                      </div>
 
                     
                       <div className="d-flex justify-content-center">

@@ -29,6 +29,8 @@ import NewPassword from "./pages/Auth/NewPassword";
 import PasswordUpdate from "./pages/user/PasswordUpdate";
 import Gender from "./pages/Gender";
 import SalesReport from "./pages/SalesReport";
+import ConfigAdmin from "./pages/Admin/Ajustes";
+
 
 function App() {
   return (
@@ -67,6 +69,7 @@ function App() {
           <Route path="admin/orders" element={<AdminOrders />} />
           <Route path="admin/sales-report" element={<SalesReport />} />
           <Route path="admin/order/:_id" element={<AdminOrder />} />
+          <Route path="admin/config" element={<ConfigAdmin />} />
         </Route>
 
         {/* Rutas de autenticación */}

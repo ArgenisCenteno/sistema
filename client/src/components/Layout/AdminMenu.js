@@ -49,6 +49,12 @@ const AdminMenu = () => {
           >
             Reporte de ordenes
           </NavLink>
+          <NavLink 
+            to="/dashboard/admin/config"
+            className="list-group-item list-group-item-action"
+          >
+            Ajustes
+          </NavLink>
         </div>
       </div>
     </>

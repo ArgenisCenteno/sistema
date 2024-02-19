@@ -22,6 +22,8 @@ import {
 } from "../controllers/authController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import { getWeeklyOrders, getMonthlyOrders } from "../controllers/productController.js";
+import { createConfigSystem, getConfigSystem, updateConfigSystem } from "../controllers/configController.js";
+import formidable from "express-formidable";
 
 //OBJETO RUTA
 const router = express.Router();
@@ -132,5 +134,9 @@ router.get(
  
   getMonthlyOrders
 );
+
+router.get("/all-config", getConfigSystem);
+router.post("/create-config", requireSignIn,formidable(), createConfigSystem)
+router.put("/update-config", requireSignIn,formidable(), updateConfigSystem)
 
 export default router;
