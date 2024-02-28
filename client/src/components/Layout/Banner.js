@@ -17,7 +17,7 @@ const Banner = () => {
             <div className="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
               
               <h6 className="text-uppercase mb-4">
-                <StoreIcon/> Blanca Sánchez C.A
+                <StoreIcon/> Blanca Sánchez F.P
               </h6>
               <p>
                Empresa especializada en la venta de ropa para hombres, mujeres, niños y niñas. Contamos con tienda fisica, un

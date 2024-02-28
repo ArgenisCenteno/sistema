@@ -130,7 +130,7 @@ const SalesReport = () => {
       filteredOrders.forEach(order => {
         const rowData = [
           order._id,
-          order.buyer.name,
+          order?.buyer?.name,
           new Date(order.createdAt).toLocaleDateString(),
           `$${order.total.toFixed(2)}` // Formatear el total como moneda
         ];

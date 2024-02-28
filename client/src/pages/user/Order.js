@@ -211,6 +211,10 @@ const Order = () => {
                           <p className="mb-2">Banco</p>
                           <p className="mb-2">{banco}</p>
                         </div>
+                        <div className="d-flex justify-content-between mb-2">
+                          <p className="mb-2">Número de Cuenta</p>
+                          <p className="mb-2">0105-8989-89892-2223-234</p>
+                        </div>
    
 </div>
 
@@ -277,7 +281,7 @@ const Order = () => {
               />)}
              
               </div>
-              <button className="btn btn-success  btn-lg btn-block mt-4 mb-4 "          onClick={showModal}>Pagar con Pago Movil </button> <br/>
+              <button className="btn btn-success  btn-lg btn-block mt-4 mb-4 "          onClick={showModal}>Pago Movil/Transferencia </button> <br/>
               <span className="span text-muted  mt-2  text-center "> <strong>Atencion al cliente</strong> </span>
   <a href="https://wa.link/5ye7qg" target="_blank" style={{textDecoration: "none"}}>
               <button className="btn btn-primary btn-lg btn-block mt-4" style={{width: "100%"}}> <WhatsAppIcon/> WhatsApp</button>

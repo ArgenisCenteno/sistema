@@ -8,7 +8,7 @@ export const sliderItems = [
    id: 2,
    img: imagen1,
    title: "AMPLIA GAMA DE PRODUCTOS",
-   desc: "CONTAMOS CON UN AMPLIO CATALOGO DE PRODUCTOS, PARA DAMA DAMAS, CABALLEROS Y NIÑOS ",
+   desc: "CONTAMOS CON UN AMPLIO CATALOGO DE PRODUCTOS, PARA DAMAS, CABALLEROS Y NIÑOS ",
    bg: "fcf1ed",
  }, 
    {
